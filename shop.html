@@ -1,0 +1,228 @@
+<!-- Paws Delights Shop Page - Simple static shop view -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop | Paws Delights</title>
+    <style>
+        :root {
+            --background: #ffffff;
+            --accent: #f2e7d5;
+            --highlight: #3d715b;
+            --text: #2f2f2f;
+            --muted: #6d6d6d;
+            --card: #f9f6f1;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            padding: 0;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        nav a {
+            padding: 0.4rem 0.6rem;
+            border-radius: 10px;
+        }
+
+        nav a:hover,
+        nav a:focus-visible {
+            background: var(--accent);
+            color: var(--highlight);
+        }
+
+        .logo { font-weight: 800; font-size: 1.3rem; letter-spacing: 0.4px; }
+
+        .section { padding: 4rem 1.5rem; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        h1, h2, h3 { margin: 0 0 1rem; line-height: 1.2; }
+        p { margin: 0 0 1rem; color: var(--muted); }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem 1.3rem;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+        .btn-primary { background: var(--highlight); color: #fff; }
+        .btn-primary:hover { box-shadow: 0 10px 30px rgba(61, 113, 91, 0.25); transform: translateY(-1px); }
+        .btn-secondary { background: #fff; border-color: var(--highlight); color: var(--highlight); }
+        .btn-secondary:hover { background: var(--accent); }
+
+        .hero {
+            background: linear-gradient(135deg, #fff 0%, #f7f1e7 100%);
+            text-align: center;
+        }
+
+        .treat-grid {
+            display: grid;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .treat-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 1.4rem;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+            display: grid;
+            gap: 0.4rem;
+        }
+
+        .treat-meta {
+            display: flex;
+            gap: 0.8rem;
+            color: var(--muted);
+            font-size: 0.95rem;
+            flex-wrap: wrap;
+        }
+
+        .cta {
+            background: var(--accent);
+            text-align: center;
+            border-radius: 14px;
+            padding: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        footer {
+            background: #0f1c16;
+            color: #e9e9e9;
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+
+        @media (min-width: 720px) {
+            .treat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (min-width: 1040px) {
+            .treat-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-bar">
+            <div class="logo">Paws Delights</div>
+            <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="more.html">More</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="section hero">
+            <div class="container">
+                <h1>Shop Paws Delights Treats</h1>
+                <p>Premium, small-breed friendly snacks crafted with safe ingredients and lots of care.</p>
+                <div style="display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap;">
+                    <a class="btn btn-primary" href="index.html#treats">View all treats</a>
+                    <a class="btn btn-secondary" href="index.html#contact">Contact us</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Treat cards -->
+        <section class="section">
+            <div class="container">
+                <h2>Popular Picks</h2>
+                <div class="treat-grid">
+                    <article class="treat-card">
+                        <h3>Pumpkin Crunch Bites</h3>
+                        <p>Lightly baked pumpkin and oat clusters for sensitive stomachs.</p>
+                        <div class="treat-meta"><span>80g / 150g</span><span>₩8,000 · ₩13,000</span></div>
+                    </article>
+                    <article class="treat-card">
+                        <h3>Blueberry Soft Chews</h3>
+                        <p>Soft, chewy treats with antioxidant-rich berries and flax.</p>
+                        <div class="treat-meta"><span>90g / 180g</span><span>₩9,000 · ₩15,000</span></div>
+                    </article>
+                    <article class="treat-card">
+                        <h3>Chicken Herb Minis</h3>
+                        <p>Tiny savory bites with lean protein and calming herbs.</p>
+                        <div class="treat-meta"><span>70g / 140g</span><span>₩8,500 · ₩14,000</span></div>
+                    </article>
+                    <article class="treat-card">
+                        <h3>Apple Cinnamon Chips</h3>
+                        <p>Slow-dried apple slices with a hint of warm spice.</p>
+                        <div class="treat-meta"><span>60g / 120g</span><span>₩7,500 · ₩12,500</span></div>
+                    </article>
+                    <article class="treat-card">
+                        <h3>Honey Yogurt Drops</h3>
+                        <p>Cooling yogurt buttons sweetened with local honey.</p>
+                        <div class="treat-meta"><span>65g / 130g</span><span>₩8,000 · ₩13,000</span></div>
+                    </article>
+                    <article class="treat-card">
+                        <h3>Carrot Crunch Sticks</h3>
+                        <p>Crisp sticks for training time, with vitamin-rich carrots.</p>
+                        <div class="treat-meta"><span>85g / 160g</span><span>₩8,500 · ₩14,500</span></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="section">
+            <div class="container">
+                <div class="cta">
+                    <h2>Need help choosing?</h2>
+                    <p>Tell us about your pup’s age, size, and preferences. We’ll suggest the best treats.</p>
+                    <a class="btn btn-primary" href="index.html#contact">Reach out</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        © Paws Delights · <a href="mailto:hello@pawsdelights.com" style="color:#e9e9e9;">Email Us</a>
+    </footer>
+</body>
+</html>
