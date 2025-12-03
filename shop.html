@@ -1,270 +1,231 @@
-<!-- Paws Delights Shop Page - Simple static shop view -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>구매 | Paws Delights</title>
-    <meta name="description" content="Paws Delights 시그니처 수제 간식을 구매하세요. 소형견 맞춤 크기와 안전한 재료." />
-    <link rel="icon" href="/favicon.ico" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Paws Delights" />
-    <meta property="og:title" content="구매 | Paws Delights" />
-    <meta property="og:description" content="소형견을 위한 프리미엄 수제 간식 구매" />
-    <meta property="og:url" content="https://pawsdelights.com/shop" />
-    <meta property="og:image" content="https://dummyimage.com/1200x630/3d715b/ffffff&text=Paws+Delights" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="구매 | Paws Delights" />
-    <meta name="twitter:description" content="안심 재료로 만든 수제 강아지 간식" />
-    <meta name="theme-color" content="#3d715b" />
-    <style>
-        :root {
-            --background: #ffffff;
-            --accent: #f2e7d5;
-            --highlight: #3d715b;
-            --text: #2f2f2f;
-            --muted: #6d6d6d;
-            --card: #f9f6f1;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>구매 | Paws Delights</title>
+  <meta name="description" content="포즈딜라이츠 수제 간식 구매 페이지" />
+  <style>
+    /* ---------- Global Styles ---------- */
+    :root {
+      --bg: #ffffff;
+      --accent: #f5eee3;
+      --highlight: #3d715b;
+      --muted: #6d6d6d;
+      --text: #2f2f2f;
+      --card: #f9f6f1;
+      --line: #e5e0d7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, h4 { margin: 0 0 0.75rem; line-height: 1.25; }
+    p { margin: 0 0 1rem; color: var(--muted); }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    .section { padding: 3.5rem 0; }
 
-        * { box-sizing: border-box; }
+    /* ---------- Buttons ---------- */
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.85rem 1.4rem; border-radius: 999px; border: 1px solid transparent; font-weight: 700; cursor: pointer; transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease; }
+    .btn-primary { background: var(--highlight); color: #fff; }
+    .btn-primary:hover { box-shadow: 0 10px 30px rgba(61,113,91,0.25); transform: translateY(-2px); }
+    .btn-ghost { background: transparent; border: 1px solid var(--highlight); color: var(--highlight); }
+    .btn-ghost:hover { background: var(--highlight); color: #fff; }
 
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", sans-serif;
-            background: var(--background);
-            color: var(--text);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
+    /* ---------- Header / Navigation ---------- */
+    header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+    .top-bar { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem; font-size: 0.95rem; border-bottom: 1px solid var(--line); }
+    .top-links { display: flex; gap: 1rem; }
+    .navbar { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 1.5rem; flex-wrap: wrap; gap: 0.75rem; }
+    .logo { font-weight: 800; font-size: 1.25rem; letter-spacing: 0.3px; }
+    .nav-links { display: flex; gap: 0.75rem; flex-wrap: wrap; font-weight: 600; }
+    .nav-links a { padding: 0.45rem 0.6rem; border-radius: 10px; transition: background 0.2s ease, color 0.2s ease; }
+    .nav-links a:hover { background: var(--accent); color: var(--highlight); }
 
-        a { color: inherit; text-decoration: none; }
+    /* ---------- Hero Section ---------- */
+    .hero { background: linear-gradient(135deg, #fff 0%, #f8f1e7 100%); padding: 3.5rem 0 3rem; }
+    .hero-inner { display: grid; gap: 2rem; align-items: center; }
+    .hero-image { background: var(--card); border: 1px dashed rgba(0,0,0,0.08); border-radius: 16px; min-height: 220px; display: grid; place-items: center; color: var(--highlight); font-weight: 700; text-align: center; padding: 1.5rem; }
 
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            background: rgba(255, 255, 255, 0.94);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
+    /* ---------- Product Grid ---------- */
+    .product-grid { display: grid; gap: 1rem; margin-top: 1.5rem; }
+    .product-card { background: #fff; border-radius: 14px; padding: 1.3rem; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 12px 30px rgba(0,0,0,0.04); display: grid; gap: 0.6rem; transition: transform 0.16s ease, box-shadow 0.2s ease; }
+    .product-card:hover { transform: translateY(-3px); box-shadow: 0 18px 36px rgba(0,0,0,0.08); }
+    .product-meta { display: flex; gap: 0.8rem; color: var(--muted); flex-wrap: wrap; font-size: 0.95rem; }
+    .badge { display: inline-flex; align-items: center; padding: 0.3rem 0.65rem; border-radius: 999px; background: rgba(61,113,91,0.12); color: var(--highlight); font-weight: 700; font-size: 0.9rem; }
 
-        .nav-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 1.5rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
+    /* ---------- CTA Banner ---------- */
+    .cta { background: var(--accent); border-radius: 14px; padding: 1.8rem; border: 1px solid var(--line); text-align: center; }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 1rem;
-            padding: 0;
-            margin: 0;
-            font-weight: 600;
-        }
+    /* ---------- Footer ---------- */
+    footer { background: #0f1c16; color: #e9e9e9; padding: 2.5rem 0; margin-top: 2rem; }
+    .footer-grid { display: grid; gap: 1.5rem; }
+    .footer-links, .footer-social { display: grid; gap: 0.35rem; font-size: 0.95rem; }
+    .footer-links a, .footer-social a { color: #e9e9e9; }
+    .footer-bottom { margin-top: 1.5rem; font-size: 0.9rem; color: #cfcfcf; }
 
-        nav a {
-            padding: 0.4rem 0.6rem;
-            border-radius: 10px;
-        }
-
-        nav a:hover,
-        nav a:focus-visible {
-            background: var(--accent);
-            color: var(--highlight);
-        }
-
-        .logo { font-weight: 800; font-size: 1.3rem; letter-spacing: 0.4px; }
-
-        .section { padding: 4rem 1.5rem; }
-        .container { max-width: 1100px; margin: 0 auto; }
-        h1, h2, h3 { margin: 0 0 1rem; line-height: 1.2; }
-        p { margin: 0 0 1rem; color: var(--muted); }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.8rem 1.3rem;
-            border-radius: 999px;
-            border: 1px solid transparent;
-            font-weight: 700;
-            cursor: pointer;
-            transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
-        }
-        .btn-primary { background: var(--highlight); color: #fff; }
-        .btn-primary:hover { box-shadow: 0 10px 30px rgba(61, 113, 91, 0.25); transform: translateY(-1px); }
-        .btn-secondary { background: #fff; border-color: var(--highlight); color: var(--highlight); }
-        .btn-secondary:hover { background: var(--accent); }
-
-        .hero {
-            background: linear-gradient(135deg, #fff 0%, #f7f1e7 100%);
-            text-align: center;
-        }
-
-        .treat-grid {
-            display: grid;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .treat-card {
-            background: #fff;
-            border-radius: 14px;
-            padding: 1.4rem;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
-            display: grid;
-            gap: 0.4rem;
-            transition: transform 0.16s ease, box-shadow 0.2s ease;
-        }
-
-        .treat-card:hover { transform: translateY(-4px); box-shadow: 0 18px 36px rgba(0, 0, 0, 0.08); }
-
-        .treat-meta {
-            display: flex;
-            gap: 0.8rem;
-            color: var(--muted);
-            font-size: 0.95rem;
-            flex-wrap: wrap;
-        }
-
-        .treat-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.4rem; }
-
-        .cta {
-            background: var(--accent);
-            text-align: center;
-            border-radius: 14px;
-            padding: 2rem;
-            margin-top: 2.5rem;
-        }
-
-        footer {
-            background: #0f1c16;
-            color: #e9e9e9;
-            padding: 2rem 1.5rem;
-            text-align: center;
-        }
-
-        @media (min-width: 720px) {
-            .treat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        }
-        @media (min-width: 1040px) {
-            .treat-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        }
-    </style>
+    /* ---------- Responsive ---------- */
+    @media (min-width: 720px) {
+      .hero-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem; }
+      .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
+    }
+    @media (min-width: 1040px) { .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="nav-bar">
-            <div class="logo">Paws Delights</div>
-            <nav aria-label="Main navigation">
-                <ul>
-                    <li><a href="index.html">홈</a></li>
-                    <li><a href="shop.html">구매</a></li>
-                    <li><a href="blog.html">블로그</a></li>
-                    <li><a href="about.html">회사소개</a></li>
-                    <li><a href="more.html">더보기</a></li>
-                </ul>
-            </nav>
+  <!-- Header / Navigation -->
+  <header>
+    <div class="top-bar">
+      <div class="logo">Paws Delights</div>
+      <div class="top-links">
+        <a href="login.html">로그인</a>
+        <a href="signup.html">회원가입</a>
+      </div>
+    </div>
+    <nav class="navbar" aria-label="Main navigation">
+      <div class="nav-links">
+        <a href="index.html">홈</a>
+        <a href="shop.html">구매</a>
+        <a href="blog.html">블로그</a>
+        <a href="about.html">회사 소개</a>
+        <a href="paws-paws.html">포즈 포즈</a>
+        <a href="alt-protein.html">대체단백질</a>
+        <a href="subscription.html">내 구독 서비스</a>
+        <a href="more.html">More</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <h1>포즈딜라이츠 간식 구매</h1>
+          <p>자연 원료와 친환경 공정으로 만든 저알러지 수제 간식. 소형견도 안심하고 즐길 수 있어요.</p>
+          <div style="display:flex;gap:0.8rem;flex-wrap:wrap;margin-top:1rem;">
+            <a class="btn btn-primary" href="#products">제품 보기</a>
+            <a class="btn btn-ghost" href="index.html#contact">맞춤 상담</a>
+          </div>
         </div>
-    </header>
+        <div class="hero-image" aria-label="Shop hero image placeholder">Shop hero image placeholder</div>
+      </div>
+    </section>
 
-    <main>
-        <!-- Hero -->
-        <section class="section hero">
-            <div class="container">
-                <h1>Paws Delights 간식 구매</h1>
-                <p>소형견도 안심하고 먹을 수 있는 안전한 재료와 정성으로 만든 프리미엄 간식입니다.</p>
-                <div style="display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap;">
-                    <a class="btn btn-primary" href="index.html#treats">전체 간식 보기</a>
-                    <a class="btn btn-secondary" href="index.html#contact">문의하기</a>
-                </div>
+    <!-- Product Grid Section -->
+    <section id="products" class="section">
+      <div class="container">
+        <h2>시그니처 간식</h2>
+        <p>민감한 아이도 안심할 수 있는 저알러지 포뮬러, 높은 기호성, 부드러운 식감.</p>
+        <div class="product-grid">
+          <article class="product-card">
+            <h3>그레인프리 100%대체 단백질 츄이스틱 오리지널 105g</h3>
+            <p>저알러지 단백질로 만든 데일리 스틱. 소화가 편안하고 기호성이 좋습니다.</p>
+            <div class="product-meta">
+              <span>105g</span>
+              <span>₩13,000</span>
             </div>
-        </section>
-
-        <!-- Treat cards -->
-        <section class="section">
-            <div class="container">
-                <h2>인기 간식</h2>
-                <div class="treat-grid">
-                    <article class="treat-card" id="pumpkin-crunch">
-                        <h3>펌킨 크런치 바이트</h3>
-                        <p>호박과 귀리를 가볍게 구워 민감한 위에도 편안한 한입 간식.</p>
-                        <div class="treat-meta"><span>80g / 150g</span><span>₩8,000 · ₩13,000</span></div>
-                        <div class="treat-actions">
-                            <a class="btn btn-primary" href="mailto:hello@pawsdelights.com?subject=펌킨%20크런치%20바이트%20주문">구매 문의</a>
-                            <a class="btn btn-secondary" href="#contact">추천 받기</a>
-                        </div>
-                    </article>
-                    <article class="treat-card" id="blueberry-soft">
-                        <h3>블루베리 소프트 츄</h3>
-                        <p>베리와 아마씨로 만든 부드러운 식감의 츄, 훈련용으로도 좋아요.</p>
-                        <div class="treat-meta"><span>90g / 180g</span><span>₩9,000 · ₩15,000</span></div>
-                        <div class="treat-actions">
-                            <a class="btn btn-primary" href="mailto:hello@pawsdelights.com?subject=블루베리%20소프트%20츄%20주문">구매 문의</a>
-                            <a class="btn btn-secondary" href="#contact">추천 받기</a>
-                        </div>
-                    </article>
-                    <article class="treat-card" id="chicken-herb">
-                        <h3>치킨 허브 미니</h3>
-                        <p>담백한 단백질과 허브를 더한 고소한 미니 스낵.</p>
-                        <div class="treat-meta"><span>70g / 140g</span><span>₩8,500 · ₩14,000</span></div>
-                        <div class="treat-actions">
-                            <a class="btn btn-primary" href="mailto:hello@pawsdelights.com?subject=치킨%20허브%20미니%20주문">구매 문의</a>
-                            <a class="btn btn-secondary" href="#contact">추천 받기</a>
-                        </div>
-                    </article>
-                    <article class="treat-card" id="apple-cinnamon">
-                        <h3>애플 시나몬 칩스</h3>
-                        <p>사과를 천천히 건조해 향긋한 시나몬을 살짝 더한 칩.</p>
-                        <div class="treat-meta"><span>60g / 120g</span><span>₩7,500 · ₩12,500</span></div>
-                        <div class="treat-actions">
-                            <a class="btn btn-primary" href="mailto:hello@pawsdelights.com?subject=애플%20시나몬%20칩스%20주문">구매 문의</a>
-                            <a class="btn btn-secondary" href="#contact">추천 받기</a>
-                        </div>
-                    </article>
-                    <article class="treat-card" id="honey-yogurt">
-                        <h3>허니 요거트 드롭스</h3>
-                        <p>로컬 꿀을 더한 시원한 요거트 버튼, 간편한 간식용.</p>
-                        <div class="treat-meta"><span>65g / 130g</span><span>₩8,000 · ₩13,000</span></div>
-                        <div class="treat-actions">
-                            <a class="btn btn-primary" href="mailto:hello@pawsdelights.com?subject=허니%20요거트%20드롭스%20주문">구매 문의</a>
-                            <a class="btn btn-secondary" href="#contact">추천 받기</a>
-                        </div>
-                    </article>
-                    <article class="treat-card" id="carrot-crunch">
-                        <h3>캐롯 크런치 스틱</h3>
-                        <p>비타민이 풍부한 당근으로 만든 바삭한 트레이닝 스틱.</p>
-                        <div class="treat-meta"><span>85g / 160g</span><span>₩8,500 · ₩14,500</span></div>
-                        <div class="treat-actions">
-                            <a class="btn btn-primary" href="mailto:hello@pawsdelights.com?subject=캐롯%20크런치%20스틱%20주문">구매 문의</a>
-                            <a class="btn btn-secondary" href="#contact">추천 받기</a>
-                        </div>
-                    </article>
-                </div>
+            <a class="btn btn-primary" href="mailto:hello@pawsdelights.com?subject=오리지널%20주문">구매 문의</a>
+          </article>
+          <article class="product-card">
+            <h3>그레인프리 100%대체 단백질 츄이스틱 프리미엄 105g</h3>
+            <p>기호성과 단백질을 높이고 지방을 낮춘 보상용 프리미엄 스틱.</p>
+            <div class="product-meta">
+              <span>105g</span>
+              <span>₩15,000</span>
             </div>
-        </section>
-
-        <!-- CTA -->
-        <section class="section" id="contact">
-            <div class="container">
-                <div class="cta">
-                    <h2>어떤 간식이 맞을지 고민되나요?</h2>
-                    <p>아이의 나이, 체형, 취향을 알려주시면 잘 맞는 간식을 추천해 드립니다.</p>
-                    <a class="btn btn-primary" href="index.html#contact">문의 남기기</a>
-                    <p style="margin-top:1rem;color:var(--text);">배송: 오후 2시 이전 주문 시 당일 출고 · 부드러운 제품은 아이스팩 동봉 · 단순 변심 7일 이내 교환/환불 가능</p>
-                </div>
+            <span class="badge">준비중</span>
+          </article>
+          <article class="product-card">
+            <h3>저지방 데일리 스틱 (가칭)</h3>
+            <p>매일 주기 좋은 저지방 레시피와 부드러운 식감으로 트레이닝 보상에 활용하세요.</p>
+            <div class="product-meta">
+              <span>100g</span>
+              <span>Coming soon</span>
             </div>
-        </section>
-    </main>
+            <a class="btn btn-ghost" href="mailto:hello@pawsdelights.com?subject=데일리%20스틱%20알림">입고 알림 받기</a>
+          </article>
+          <article class="product-card">
+            <h3>샘플러 팩 (오리지널/프리미엄)</h3>
+            <p>첫 구매를 위한 소용량 샘플러. 아이의 취향을 빠르게 확인하세요.</p>
+            <div class="product-meta">
+              <span>2 x 40g</span>
+              <span>₩9,500</span>
+            </div>
+            <a class="btn btn-primary" href="mailto:hello@pawsdelights.com?subject=샘플러%20팩%20주문">구매 문의</a>
+          </article>
+          <article class="product-card">
+            <h3>구독 전용 패키지</h3>
+            <p>매달 신선한 수제 간식을 받아보는 구독 옵션. 특별가와 사은품을 포함합니다.</p>
+            <div class="product-meta">
+              <span>월 2/4/6팩 옵션</span>
+              <span>구독가 별도</span>
+            </div>
+            <a class="btn btn-primary" href="subscription.html">구독 알아보기</a>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <footer>
-        © Paws Delights · <a href="mailto:hello@pawsdelights.com" style="color:#e9e9e9;">이메일 문의</a>
-    </footer>
+    <!-- CTA Banner -->
+    <section class="section" style="background: var(--accent);">
+      <div class="container">
+        <div class="cta">
+          <h2>어떤 간식이 맞을지 고민되나요?</h2>
+          <p>아이의 나이, 알러지, 취향을 알려주시면 가장 잘 맞는 간식을 추천해 드립니다.</p>
+          <div style="display:flex;gap:0.8rem;flex-wrap:wrap;justify-content:center;">
+            <a class="btn btn-primary" href="mailto:hello@pawsdelights.com">이메일 문의</a>
+            <a class="btn btn-ghost" href="index.html#contact">상담 남기기</a>
+          </div>
+          <p style="margin-top:1rem;color:var(--text);">배송: 오후 2시 이전 주문 시 당일 출고 · 부드러운 제품은 아이스팩 동봉 · 단순 변심 7일 이내 교환/환불 가능</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h4>바로가기</h4>
+        <div class="footer-links">
+          <a href="shop.html">제품 구매</a>
+          <a href="about.html">회사 소개</a>
+          <a href="alt-protein.html">대체 단백질</a>
+          <a href="privacy.html">개인정보처리방침</a>
+          <a href="policy.html">구매 정책</a>
+          <a href="faq.html">FAQ</a>
+        </div>
+      </div>
+      <div>
+        <h4>소셜</h4>
+        <div class="footer-social">
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">Twitter</a>
+          <a href="#">YouTube</a>
+          <a href="#">TikTok</a>
+        </div>
+      </div>
+      <div>
+        <h4>회사 정보</h4>
+        <div class="footer-links">
+          <span>피넛 (Peanut)</span>
+          <span>사업자 번호: 740-30-01837</span>
+          <span>연락처: (82) 010-4162-8724</span>
+          <span>사업장 주소: 경기도 성남시 분당구 양현로 254 501-1005</span>
+          <span>대표: 정유리</span>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">© 2025 by Paws Delights LLC, All rights Reserved</div>
+  </footer>
 </body>
 </html>
