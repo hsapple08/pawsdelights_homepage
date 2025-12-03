@@ -1,749 +1,398 @@
-<!-- Paws Delights Landing Page - Simple static homepage built to replace a Wix site -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Paws Delights | 건강한 강아지 간식</title>
-    <meta name="description" content="소형견도 안심하고 먹을 수 있는 프리미엄 수제 간식 브랜드 Paws Delights." />
-    <link rel="icon" href="/favicon.ico" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Paws Delights" />
-    <meta property="og:title" content="Paws Delights | 건강한 강아지 간식" />
-    <meta property="og:description" content="안전한 재료와 부드러운 식감으로 만든 프리미엄 수제 간식" />
-    <meta property="og:url" content="https://pawsdelights.com/" />
-    <meta property="og:image" content="https://dummyimage.com/1200x630/3d715b/ffffff&text=Paws+Delights" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Paws Delights | 건강한 강아지 간식" />
-    <meta name="twitter:description" content="소형견 맞춤 프리미엄 수제 간식" />
-    <meta name="theme-color" content="#3d715b" />
-    <style>
-        /* ---------- Global styles ---------- */
-        :root {
-            --background: #ffffff;
-            --accent: #ff7402;
-            --highlight: #3d715b;
-            --text: #2f2f2f;
-            --muted: #6d6d6d;
-            --card: #f9f6f1;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", sans-serif;
-            background: var(--background);
-            color: var(--text);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-            border-radius: 12px;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        button,
-        input,
-        textarea {
-            font: inherit;
-        }
-
-        /* ---------- Layout helpers ---------- */
-        .section {
-            padding: 4rem 1.5rem;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        h1, h2, h3 {
-            margin: 0 0 1rem;
-            line-height: 1.2;
-        }
-
-        p {
-            margin: 0 0 1rem;
-            color: var(--muted);
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.85rem 1.4rem;
-            border-radius: 999px;
-            border: 1px solid transparent;
-            font-weight: 700;
-            letter-spacing: 0.2px;
-            cursor: pointer;
-            transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
-        }
-
-        .btn-primary {
-            background: var(--highlight);
-            color: #fff;
-        }
-
-        .btn-primary:hover {
-            box-shadow: 0 10px 30px rgba(61, 113, 91, 0.25);
-            transform: translateY(-1px);
-        }
-
-        .btn-secondary {
-            background: #fff;
-            border-color: var(--highlight);
-            color: var(--highlight);
-        }
-
-        .btn-secondary:hover {
-            background: var(--accent);
-        }
-
-        /* ---------- Header & Nav ---------- */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            background: rgba(255, 255, 255, 0.94);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .nav-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 1.5rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-weight: 800;
-            font-size: 1.3rem;
-            letter-spacing: 0.4px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 1rem;
-            padding: 0;
-            margin: 0;
-            font-weight: 600;
-        }
-
-        nav a {
-            padding: 0.4rem 0.6rem;
-            border-radius: 10px;
-            transition: background 0.2s ease, color 0.2s ease;
-        }
-
-        nav a:hover,
-        nav a:focus-visible {
-            background: var(--accent);
-            color: var(--highlight);
-        }
-
-        /* ---------- Hero Section ---------- */
-        .hero {
-            padding: 4.5rem 1.5rem 4rem;
-            background: linear-gradient(135deg, #fff 0%, #f7f1e7 100%);
-        }
-
-        .hero-inner {
-            display: grid;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .hero-text h1 {
-            font-size: clamp(2.1rem, 4vw, 3rem);
-        }
-
-        .hero-text p {
-            max-width: 540px;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 0.8rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-
-        .trust-row {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-
-        .trust-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            padding: 0.55rem 0.9rem;
-            border-radius: 999px;
-            background: rgba(61, 113, 91, 0.12);
-            color: var(--highlight);
-            font-weight: 700;
-            font-size: 0.95rem;
-        }
-
-        .hero-image {
-            background: var(--card);
-            border: 1px dashed rgba(61, 113, 91, 0.4);
-            border-radius: 16px;
-            min-height: 220px;
-            display: grid;
-            place-items: center;
-            color: var(--highlight);
-            font-weight: 700;
-            text-align: center;
-            padding: 1.5rem;
-        }
-
-        /* ---------- About Section ---------- */
-        .about {
-            background: #fff;
-        }
-
-        .about-grid {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .about-image {
-            background: var(--card);
-            border-radius: 14px;
-            border: 1px dashed rgba(0, 0, 0, 0.08);
-            min-height: 200px;
-            display: grid;
-            place-items: center;
-            color: var(--highlight);
-            font-weight: 700;
-            text-align: center;
-            padding: 1.5rem;
-        }
-
-        .about-list {
-            display: grid;
-            gap: 0.8rem;
-        }
-
-        /* ---------- Treats Section ---------- */
-        .treats {
-            background: var(--accent);
-        }
-
-        .treat-grid {
-            display: grid;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .treat-card {
-            background: #fff;
-            border-radius: 14px;
-            padding: 1.4rem;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
-            display: grid;
-            gap: 0.4rem;
-            transition: transform 0.16s ease, box-shadow 0.2s ease;
-        }
-
-        .treat-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 18px 36px rgba(0, 0, 0, 0.08);
-        }
-
-        .treat-meta {
-            display: flex;
-            gap: 0.8rem;
-            color: var(--muted);
-            font-size: 0.95rem;
-            flex-wrap: wrap;
-        }
-
-        /* ---------- Reviews Section ---------- */
-        .reviews {
-            background: #fff;
-        }
-
-        .review-grid {
-            display: grid;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .review-card {
-            background: var(--card);
-            border-radius: 14px;
-            padding: 1.4rem;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            transition: transform 0.16s ease, box-shadow 0.2s ease;
-        }
-
-        .review-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 26px rgba(0, 0, 0, 0.07);
-        }
-
-        .reviewer {
-            font-weight: 700;
-            color: var(--highlight);
-        }
-
-        /* ---------- FAQ Section ---------- */
-        .faq {
-            background: #fff;
-        }
-
-        .faq-list {
-            display: grid;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .faq-item {
-            padding: 1rem 1.2rem;
-            border-radius: 12px;
-            background: var(--card);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .faq-item strong {
-            display: block;
-            margin-bottom: 0.4rem;
-            color: var(--text);
-        }
-
-        /* ---------- Contact Section ---------- */
-        .contact {
-            background: var(--accent);
-        }
-
-        .contact-card {
-            background: #fff;
-            border-radius: 14px;
-            padding: 1.5rem;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
-        }
-
-        .treat-actions {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-top: 0.4rem;
-        }
-
-        .form-status {
-            margin-top: 0.4rem;
-            font-weight: 600;
-            color: var(--highlight);
-        }
-
-        form {
-            display: grid;
-            gap: 0.9rem;
-        }
-
-        label {
-            font-weight: 600;
-            color: var(--text);
-        }
-
-        input,
-        textarea {
-            width: 100%;
-            padding: 0.85rem;
-            border-radius: 10px;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            background: #fafafa;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        input:focus,
-        textarea:focus {
-            outline: none;
-            border-color: var(--highlight);
-            box-shadow: 0 0 0 3px rgba(61, 113, 91, 0.12);
-            background: #fff;
-        }
-
-        textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .small-note {
-            font-size: 0.95rem;
-            color: var(--muted);
-            margin-top: 0.5rem;
-        }
-
-        /* ---------- Footer ---------- */
-        footer {
-            background: #0f1c16;
-            color: #e9e9e9;
-            padding: 2.5rem 1.5rem;
-        }
-
-        .footer-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            font-size: 0.95rem;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: #e9e9e9;
-            border-bottom: 1px solid transparent;
-            padding-bottom: 2px;
-        }
-
-        .footer-links a:hover {
-            border-color: #e9e9e9;
-        }
-
-        /* ---------- Responsive tweaks ---------- */
-        @media (min-width: 720px) {
-            .hero-inner {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 2.5rem;
-            }
-
-            .about-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                align-items: center;
-            }
-
-            .treat-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
-            .review-grid {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
-
-            .faq-list {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-
-        @media (min-width: 1040px) {
-            .treat-grid {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paws Delights | 건강한 반려견 간식</title>
+  <meta name="description" content="자연 원료와 친환경 공정으로 만든 저알러지 반려견 간식, 포즈딜라이츠" />
+  <style>
+    /* ---------- Global Styles ---------- */
+    :root {
+      --bg: #ffffff;
+      --accent: #f5eee3;
+      --highlight: #3d715b;
+      --muted: #6d6d6d;
+      --text: #2f2f2f;
+      --card: #f9f6f1;
+      --line: #e5e0d7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    h1, h2, h3, h4 { margin: 0 0 0.75rem; line-height: 1.25; }
+    p { margin: 0 0 1rem; color: var(--muted); }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    .section { padding: 3.5rem 0; }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.4rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+    .btn-primary { background: var(--highlight); color: #fff; }
+    .btn-primary:hover { box-shadow: 0 10px 30px rgba(61, 113, 91, 0.25); transform: translateY(-2px); }
+    .btn-ghost { background: transparent; border: 1px solid var(--highlight); color: var(--highlight); }
+    .btn-ghost:hover { background: var(--highlight); color: #fff; }
+
+    /* ---------- Header / Navigation ---------- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.95rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .top-links { display: flex; gap: 1rem; }
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1.5rem;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .logo { font-weight: 800; font-size: 1.25rem; letter-spacing: 0.3px; }
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      font-weight: 600;
+    }
+    .nav-links a {
+      padding: 0.45rem 0.6rem;
+      border-radius: 10px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .nav-links a:hover { background: var(--accent); color: var(--highlight); }
+
+    /* ---------- Hero Section ---------- */
+    .hero { background: linear-gradient(135deg, #fff 0%, #f8f1e7 100%); padding: 3.5rem 0 3rem; }
+    .hero-inner { display: grid; gap: 2rem; align-items: center; }
+    .hero-image {
+      background: var(--card);
+      border: 1px dashed rgba(0,0,0,0.08);
+      border-radius: 16px;
+      min-height: 240px;
+      display: grid;
+      place-items: center;
+      color: var(--highlight);
+      font-weight: 700;
+      text-align: center;
+      padding: 1.5rem;
+    }
+    .hero-tagline { font-weight: 700; color: var(--highlight); margin-top: 0.25rem; }
+
+    /* ---------- Promotion Section ---------- */
+    .promo {
+      background: var(--accent);
+      border-radius: 14px;
+      padding: 1.5rem;
+      display: grid;
+      gap: 0.5rem;
+      border: 1px solid var(--line);
+    }
+    .promo-title { color: var(--highlight); font-weight: 800; }
+
+    /* ---------- Products Section ---------- */
+    .product-grid { display: grid; gap: 1rem; margin-top: 1.5rem; }
+    .product-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 1.3rem;
+      border: 1px solid rgba(0,0,0,0.05);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.04);
+      display: grid;
+      gap: 0.6rem;
+      transition: transform 0.16s ease, box-shadow 0.2s ease;
+    }
+    .product-card:hover { transform: translateY(-3px); box-shadow: 0 18px 36px rgba(0,0,0,0.08); }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.3rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(61,113,91,0.12);
+      color: var(--highlight);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    /* ---------- Two-Column Content ---------- */
+    .split { display: grid; gap: 1.5rem; }
+    .placeholder-box {
+      background: var(--card);
+      border-radius: 14px;
+      border: 1px dashed rgba(0,0,0,0.08);
+      min-height: 220px;
+      display: grid;
+      place-items: center;
+      color: var(--highlight);
+      font-weight: 700;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    /* ---------- Stats Section ---------- */
+    .stat-grid { display: grid; gap: 1rem; margin-top: 1.5rem; }
+    .stat-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 1.2rem;
+      border: 1px solid rgba(0,0,0,0.05);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.04);
+    }
+    .stat-card h3 { color: var(--highlight); margin-bottom: 0.4rem; }
+
+    /* ---------- Reviews Section ---------- */
+    .review-grid { display: grid; gap: 1rem; margin-top: 1.5rem; }
+    .review-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 1.2rem;
+      border: 1px solid rgba(0,0,0,0.05);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.04);
+      display: grid;
+      gap: 0.6rem;
+    }
+    .review-photo {
+      width: 72px;
+      height: 72px;
+      border-radius: 12px;
+      background: var(--card);
+      border: 1px dashed rgba(0,0,0,0.08);
+      display: grid;
+      place-items: center;
+      color: var(--highlight);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    .reviewer { font-weight: 700; color: var(--highlight); }
+
+    /* ---------- Footer ---------- */
+    footer { background: #0f1c16; color: #e9e9e9; padding: 2.5rem 0; margin-top: 2rem; }
+    .footer-grid { display: grid; gap: 1.5rem; }
+    .footer-links, .footer-social { display: grid; gap: 0.35rem; font-size: 0.95rem; }
+    .footer-links a, .footer-social a { color: #e9e9e9; }
+    .footer-bottom { margin-top: 1.5rem; font-size: 0.9rem; color: #cfcfcf; }
+
+    /* ---------- Responsive ---------- */
+    @media (min-width: 720px) {
+      .hero-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem; }
+      .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .split { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; }
+      .stat-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .review-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
+    }
+    @media (min-width: 1040px) { .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  </style>
 </head>
 <body>
-    <!-- Header & Navigation -->
-    <header>
-        <div class="nav-bar">
-            <div class="logo">Paws Delights</div>
-            <nav aria-label="Main navigation">
-                <ul>
-                    <li><a href="#home">홈</a></li>
-                    <li><a href="shop.html">구매</a></li>
-                    <li><a href="blog.html">블로그</a></li>
-                    <li><a href="about.html">회사소개</a></li>
-                    <li><a href="more.html">더보기</a></li>
-                    <li><a href="#contact">문의</a></li>
-                </ul>
-            </nav>
+  <!-- Header / Navigation -->
+  <header>
+    <div class="top-bar">
+      <div class="logo">Paws Delights</div>
+      <div class="top-links">
+        <a href="login.html">로그인</a>
+        <a href="signup.html">회원가입</a>
+      </div>
+    </div>
+    <nav class="navbar" aria-label="Main navigation">
+      <div class="nav-links">
+        <a href="index.html">홈</a>
+        <a href="shop.html">구매</a>
+        <a href="blog.html">블로그</a>
+        <a href="about.html">회사 소개</a>
+        <a href="paws-paws.html">포즈 포즈</a>
+        <a href="alt-protein.html">대체단백질</a>
+        <a href="subscription.html">내 구독 서비스</a>
+        <a href="more.html">More</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <h1>보호자와 반려견이 함께 행복한 믿을 수 있는 간식, 포즈딜라이츠</h1>
+          <p>자연 원료, 친환경 공정, 낮은 알러지와 비만 위험으로 안심하고 줄 수 있는 건강 간식.</p>
+          <p class="hero-tagline">One Click to a Happy Dog!</p>
+          <div style="display:flex;gap:0.8rem;flex-wrap:wrap;margin-top:1rem;">
+            <a class="btn btn-primary" href="shop.html">상품 구매</a>
+            <a class="btn btn-ghost" href="#products">제품 살펴보기</a>
+          </div>
         </div>
-    </header>
+        <div class="hero-image" aria-label="Hero image placeholder">Hero image placeholder</div>
+      </div>
+    </section>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="container hero-inner">
-                <div class="hero-text">
-                    <h1>건강한 간식, 행복한 댕댕이</h1>
-                    <p>
-                        Paws Delights는 까다롭게 고른 안전한 재료로 집에서 만든 듯한 프리미엄 강아지 간식을 만듭니다.
-                        특히 소형견이 안심하고 먹을 수 있도록 부드러운 식감과 균형 잡힌 레시피로 준비했어요.
-                    </p>
-                    <div class="hero-actions">
-                        <a class="btn btn-primary" href="#treats">간식 보러가기</a>
-                        <a class="btn btn-secondary" href="#about">브랜드 소개</a>
-                    </div>
-                    <div class="trust-row" aria-label="Brand trust highlights">
-                        <div class="trust-badge">✓ 무첨가 · 무향료</div>
-                        <div class="trust-badge">✓ 소형견 맞춤 사이즈</div>
-                        <div class="trust-badge">✓ 수제 소량 베이킹</div>
-                    </div>
-                </div>
-                <div class="hero-image" aria-label="Hero image placeholder">
-                    강아지 &amp; 간식 이미지 자리
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="section about">
-            <div class="container">
-                <h2>한입 한입에 담긴 안심 재료</h2>
-                <div class="about-grid">
-                    <div class="about-image" aria-label="About image placeholder">
-                        재료 &amp; 주방 이미지 자리
-                    </div>
-                    <div>
-                        <p>
-                            민감한 아이도 행복하게 먹을 수 있도록 한 번 더 검증하고, 손으로 정성껏 만듭니다.
-                            믿을 수 있는 재료만 선별해 부드럽고 부담 없는 간식을 완성했어요.
-                        </p>
-                        <div class="about-list">
-                            <div>• 소량 수제 생산으로 균일한 품질 유지</div>
-                            <div>• 소형견을 위한 안전한 재료와 식감</div>
-                            <div>• 건강한 성분을 찾는 보호자를 위한 프리미엄 간식</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Treats Section -->
-        <section id="treats" class="section treats">
-            <div class="container">
-                <h2>댕댕이가 좋아하는 시그니처 간식</h2>
-                <p>균형 잡힌 레시피, 부드러운 식감, 소형견에 맞춘 사이즈로 준비했어요.</p>
-                <div class="treat-grid">
-                    <article class="treat-card">
-                        <h3>펌킨 크런치 바이트</h3>
-                        <p>호박과 귀리를 가볍게 구워 민감한 위에도 편안한 한입 간식.</p>
-                        <div class="treat-meta">
-                            <span>80g / 150g</span>
-                            <span>₩8,000 · ₩13,000</span>
-                        </div>
-                        <div class="treat-actions">
-                            <a class="btn btn-primary" href="shop.html#pumpkin-crunch">구매하기</a>
-                            <a class="btn btn-secondary" href="mailto:hello@pawsdelights.com?subject=펌킨%20크런치%20바이트%20문의">문의</a>
-                        </div>
-                    </article>
-                    <article class="treat-card">
-                        <h3>블루베리 소프트 츄</h3>
-                        <p>항산화가 풍부한 베리와 아마씨로 만든 부드러운 식감의 츄.</p>
-                        <div class="treat-meta">
-                            <span>90g / 180g</span>
-                            <span>₩9,000 · ₩15,000</span>
-                        </div>
-                        <div class="treat-actions">
-                            <a class="btn btn-primary" href="shop.html#blueberry-soft">구매하기</a>
-                            <a class="btn btn-secondary" href="mailto:hello@pawsdelights.com?subject=블루베리%20소프트%20츄%20문의">문의</a>
-                        </div>
-                    </article>
-                    <article class="treat-card">
-                        <h3>치킨 허브 미니</h3>
-                        <p>담백한 단백질과 허브를 더한 고소한 미니 스낵.</p>
-                        <div class="treat-meta">
-                            <span>70g / 140g</span>
-                            <span>₩8,500 · ₩14,000</span>
-                        </div>
-                        <div class="treat-actions">
-                            <a class="btn btn-primary" href="shop.html#chicken-herb">구매하기</a>
-                            <a class="btn btn-secondary" href="mailto:hello@pawsdelights.com?subject=치킨%20허브%20미니%20문의">문의</a>
-                        </div>
-                    </article>
-                    <article class="treat-card">
-                        <h3>애플 시나몬 칩스</h3>
-                        <p>사과를 천천히 건조해 향긋한 시나몬을 살짝 더한 칩.</p>
-                        <div class="treat-meta">
-                            <span>60g / 120g</span>
-                            <span>₩7,500 · ₩12,500</span>
-                        </div>
-                        <div class="treat-actions">
-                            <a class="btn btn-primary" href="shop.html#apple-cinnamon">구매하기</a>
-                            <a class="btn btn-secondary" href="mailto:hello@pawsdelights.com?subject=애플%20시나몬%20칩스%20문의">문의</a>
-                        </div>
-                    </article>
-                    <article class="treat-card">
-                        <h3>허니 요거트 드롭스</h3>
-                        <p>로컬 꿀을 더한 시원한 요거트 버튼, 간편한 간식용.</p>
-                        <div class="treat-meta">
-                            <span>65g / 130g</span>
-                            <span>₩8,000 · ₩13,000</span>
-                        </div>
-                        <div class="treat-actions">
-                            <a class="btn btn-primary" href="shop.html#honey-yogurt">구매하기</a>
-                            <a class="btn btn-secondary" href="mailto:hello@pawsdelights.com?subject=허니%20요거트%20드롭스%20문의">문의</a>
-                        </div>
-                    </article>
-                    <article class="treat-card">
-                        <h3>캐롯 크런치 스틱</h3>
-                        <p>비타민이 풍부한 당근으로 만든 바삭한 트레이닝 스틱.</p>
-                        <div class="treat-meta">
-                            <span>85g / 160g</span>
-                            <span>₩8,500 · ₩14,500</span>
-                        </div>
-                        <div class="treat-actions">
-                            <a class="btn btn-primary" href="shop.html#carrot-crunch">구매하기</a>
-                            <a class="btn btn-secondary" href="mailto:hello@pawsdelights.com?subject=캐롯%20크런치%20스틱%20문의">문의</a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Reviews Section -->
-        <section id="reviews" class="section reviews">
-            <div class="container">
-                <h2>행복한 후기</h2>
-                <div class="review-grid">
-                    <article class="review-card">
-                        <p>"편식 심한 말티즈가 처음으로 끝까지 먹는 간식이에요. 성분이 깨끗해서 안심돼요."</p>
-                        <div class="reviewer">— 벨라 보호자</div>
-                    </article>
-                    <article class="review-card">
-                        <p>"트레이닝용으로 부드럽고 향도 좋아요. 배송도 빨라서 만족합니다."</p>
-                        <div class="reviewer">— 맥스 보호자</div>
-                    </article>
-                    <article class="review-card">
-                        <p>"자기 전 루틴으로 꼭 먹여요. 작은 크기라 소화도 편하고 꼬리 살랑살랑!"</p>
-                        <div class="reviewer">— 코코 가족</div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section id="faq" class="section faq">
-            <div class="container">
-                <h2>자주 묻는 질문</h2>
-                <div class="faq-list">
-                    <div class="faq-item">
-                        <strong>소형견도 먹어도 되나요?</strong>
-                        <span>네. 소형견 기준으로 크기와 식감을 설계하고 부드러운 재료만 사용합니다.</span>
-                    </div>
-                    <div class="faq-item">
-                        <strong>전국 배송 되나요?</strong>
-                        <span>네, 전국 배송합니다. 특별 배송이 필요하면 문의해주세요.</span>
-                    </div>
-                    <div class="faq-item">
-                        <strong>보관은 어떻게 하나요?</strong>
-                        <span>서늘하고 건조한 곳에 보관해주세요. 부드러운 제품은 냉장 보관 시 신선도가 오래 유지됩니다.</span>
-                    </div>
-                    <div class="faq-item">
-                        <strong>알러지 유발 성분이 있나요?</strong>
-                        <span>인공 첨가물을 넣지 않고, 알러지 유발 성분을 최대한 배제했습니다. 맛별 상세 성분을 확인해주세요.</span>
-                    </div>
-                    <div class="faq-item">
-                        <strong>훈련용으로 사용해도 되나요?</strong>
-                        <span>네, 대부분 잘게 부러져 빠르게 보상하기 좋습니다.</span>
-                    </div>
-                    <div class="faq-item">
-                        <strong>새로운 맛이 또 나오나요?</strong>
-                        <span>새로운 레시피를 계속 연구하고 있어요. 이메일 소식을 신청하면 가장 먼저 만나보실 수 있습니다.</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="section contact">
-            <div class="container">
-                <h2>우리 강아지, 어떤 간식이 필요할까요?</h2>
-                <p>아이의 나이와 취향을 알려주세요. 가장 잘 맞는 간식을 추천해 드릴게요.</p>
-                <div class="contact-card">
-                    <form method="POST" action="https://formspree.io/f/mnqekryv">
-                        <div>
-                            <label for="name">이름</label>
-                            <input id="name" name="name" type="text" placeholder="이름을 입력해주세요" required />
-                        </div>
-                        <div>
-                            <label for="email">이메일</label>
-                            <input id="email" name="email" type="email" placeholder="you@example.com" required />
-                        </div>
-                        <div>
-                            <label for="message">메시지</label>
-                            <textarea id="message" name="message" placeholder="강아지 정보나 궁금한 점을 남겨주세요" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">보내기</button>
-                    </form>
-                    <div class="form-status" aria-live="polite"></div>
-                    <div class="small-note">Formspree로 전송되는 폼입니다. 이메일이 없다면 <a href="mailto:hello@pawsdelights.com">hello@pawsdelights.com</a>으로 문의해주세요.</div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-inner">
-            <div>© Paws Delights</div>
-            <div class="footer-links">
-                <a href="https://instagram.com" target="_blank" rel="noreferrer">인스타그램</a>
-                <a href="mailto:hello@pawsdelights.com">이메일 문의</a>
-            </div>
+    <div class="container">
+      <!-- Opening Promotion Section -->
+      <section class="section">
+        <div class="promo">
+          <div class="promo-title">오픈 기념 20% DC</div>
+          <div>맴버십 가입하고 포인트 받기!</div>
+          <a class="btn btn-primary" href="membership.html" style="width:max-content;">가입하기</a>
         </div>
-    </footer>
-    <script>
-        const form = document.querySelector('form');
-        const statusBox = document.querySelector('.form-status');
-        const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
+      </section>
+    </div>
 
-        if (form) {
-            form.addEventListener('submit', async (event) => {
-                event.preventDefault();
-                statusBox.textContent = '';
+    <!-- Featured Products Section -->
+    <section id="products" class="section" style="background: var(--accent);">
+      <div class="container">
+        <h2>포즈딜라이츠 츄이 스틱</h2>
+        <p>소중한 반려견에게 영양 가득한 간식으로 건강하고 행복한 삶을 선물하세요!</p>
+        <div class="product-grid">
+          <article class="product-card">
+            <h3>그레인프리 100%대체 단백질 강아지용 츄이스틱 오리지널 105g</h3>
+            <p>민감한 아이도 안심하고 즐길 수 있는 저알러지 포뮬러와 단백질 균형을 담았습니다.</p>
+            <a class="btn btn-primary" href="shop.html">구매하기</a>
+          </article>
+          <article class="product-card">
+            <h3>그레인프리 100%대체 단백질 강아지용 츄이스틱 프리미엄 105g</h3>
+            <p>높은 기호성과 단백질을 유지하면서 지방은 낮춰 건강한 보상 간식으로 준비했습니다.</p>
+            <span class="badge">준비중</span>
+          </article>
+          <article class="product-card">
+            <h3>저지방 데일리 스틱 (가칭)</h3>
+            <p>매일 주기 좋은 부드러운 식감, 깨끗한 원료로 소화 부담을 낮춘 일상 간식.</p>
+            <a class="btn btn-ghost" href="shop.html">살펴보기</a>
+          </article>
+        </div>
+      </div>
+    </section>
 
-                if (!form.reportValidity()) return;
+    <!-- Brand Story Section -->
+    <section class="section">
+      <div class="container split">
+        <div>
+          <h2>아무거나 주는 간식은 이제 그만</h2>
+          <p>알러지도, 부담도 줄인 진짜 간식을 주세요</p>
+          <p>저알러지 포뮬러와 단백질 균형으로 예민한 아이도 안심하고 먹을 수 있도록 설계했습니다.</p>
+          <p>높은 단백질과 낮은 지방 비율로 체중 관리에 도움을 주고, 부드러운 식감으로 소화가 편안합니다.</p>
+          <p>아이들이 좋아하는 기호성은 살리고, 불필요한 첨가물은 과감히 뺐습니다.</p>
+        </div>
+        <div class="placeholder-box" aria-label="Brand story image placeholder">Brand image placeholder</div>
+      </div>
+    </section>
 
-                submitBtn.disabled = true;
-                submitBtn.textContent = '전송 중...';
+    <!-- Eco-friendly Stats Section -->
+    <section class="section" style="background: var(--accent);">
+      <div class="container">
+        <h2>친환경 포뮬러, 반려견을 위한 더 나은 선택</h2>
+        <p>곤충 단백질 기반의 친환경 포뮬러로 자원 사용을 줄이고, 지구와 반려견 모두를 생각합니다.</p>
+        <div class="stat-grid">
+          <div class="stat-card">
+            <h3>필요한 땅은 2% 면적이면 충분</h3>
+            <p>기존 축산 대비 훨씬 적은 토지를 사용해 생산 효율을 높입니다.</p>
+          </div>
+          <div class="stat-card">
+            <h3>물 사용량은 0.05% 수준으로</h3>
+            <p>지속 가능한 수자원 활용으로 환경 부담을 최소화합니다.</p>
+          </div>
+          <div class="stat-card">
+            <h3>탄소 배출도 80% 이상 절감</h3>
+            <p>낮은 탄소 발자국으로 친환경 라이프스타일을 지향합니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                const data = new FormData(form);
-                try {
-                    const response = await fetch(form.action, {
-                        method: 'POST',
-                        headers: { 'Accept': 'application/json' },
-                        body: data,
-                    });
+    <!-- Reviews Section -->
+    <section class="section">
+      <div class="container">
+        <h2>보호자 분들의 포즈포즈</h2>
+        <div class="review-grid">
+          <article class="review-card">
+            <div class="review-photo">Photo</div>
+            <p>"예민한 우리 아이가 처음으로 끝까지 잘 먹어요. 알러지 걱정이 줄어들었어요."</p>
+            <div class="reviewer">— 푸들엄마, 서울시 송파구</div>
+          </article>
+          <article class="review-card">
+            <div class="review-photo">Photo</div>
+            <p>"트레이닝용으로 딱 좋은 사이즈와 식감입니다. 손에 기름기도 적어 깔끔해요."</p>
+            <div class="reviewer">— 맥스 보호자, 용인</div>
+          </article>
+          <article class="review-card">
+            <div class="review-photo">Photo</div>
+            <p>"소화가 편한지 밤에도 잘 자고, 변 상태도 좋아졌어요. 꾸준히 재구매 중입니다."</p>
+            <div class="reviewer">— 코코 가족, 수원</div>
+          </article>
+          <article class="review-card">
+            <div class="review-photo">Photo</div>
+            <p>"환경까지 생각한 간식이라 더 안심돼요. 배송도 빠르고 포장도 깔끔했습니다."</p>
+            <div class="reviewer">— 리오 보호자, 분당</div>
+          </article>
+        </div>
+        <div style="margin-top:1rem;">
+          <a class="btn btn-ghost" href="paws-paws.html">더 많은 후기 보기</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-                    if (response.ok) {
-                        statusBox.textContent = '메시지가 전송되었습니다. 곧 연락드릴게요!';
-                        statusBox.style.color = '#3d715b';
-                        form.reset();
-                    } else {
-                        statusBox.textContent = '전송에 실패했습니다. 잠시 후 다시 시도하거나 이메일로 연락주세요.';
-                        statusBox.style.color = '#b00020';
-                    }
-                } catch (error) {
-                    statusBox.textContent = '네트워크 오류가 발생했습니다. 이메일로 연락 부탁드려요.';
-                    statusBox.style.color = '#b00020';
-                } finally {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = '보내기';
-                }
-            });
-        }
-    </script>
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h4>바로가기</h4>
+        <div class="footer-links">
+          <a href="shop.html">제품 구매</a>
+          <a href="about.html">회사 소개</a>
+          <a href="alt-protein.html">대체 단백질</a>
+          <a href="privacy.html">개인정보처리방침</a>
+          <a href="policy.html">구매 정책</a>
+          <a href="faq.html">FAQ</a>
+        </div>
+      </div>
+      <div>
+        <h4>소셜</h4>
+        <div class="footer-social">
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">Twitter</a>
+          <a href="#">YouTube</a>
+          <a href="#">TikTok</a>
+        </div>
+      </div>
+      <div>
+        <h4>회사 정보</h4>
+        <div class="footer-links">
+          <span>피넛 (Peanut)</span>
+          <span>사업자 번호: 740-30-01837</span>
+          <span>연락처: (82) 010-4162-8724</span>
+          <span>사업장 주소: 경기도 성남시 분당구 양현로 254 501-1005</span>
+          <span>대표: 정유리</span>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">© 2025 by Paws Delights LLC, All rights Reserved</div>
+  </footer>
 </body>
 </html>
