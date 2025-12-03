@@ -5,6 +5,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>구매 | Paws Delights</title>
+    <meta name="description" content="Paws Delights 시그니처 수제 간식을 구매하세요. 소형견 맞춤 크기와 안전한 재료." />
+    <link rel="icon" href="/favicon.ico" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Paws Delights" />
+    <meta property="og:title" content="구매 | Paws Delights" />
+    <meta property="og:description" content="소형견을 위한 프리미엄 수제 간식 구매" />
+    <meta property="og:url" content="https://pawsdelights.com/shop" />
+    <meta property="og:image" content="https://dummyimage.com/1200x630/3d715b/ffffff&text=Paws+Delights" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="구매 | Paws Delights" />
+    <meta name="twitter:description" content="안심 재료로 만든 수제 강아지 간식" />
+    <meta name="theme-color" content="#3d715b" />
     <style>
         :root {
             --background: #ffffff;
@@ -108,7 +120,10 @@
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
             display: grid;
             gap: 0.4rem;
+            transition: transform 0.16s ease, box-shadow 0.2s ease;
         }
+
+        .treat-card:hover { transform: translateY(-4px); box-shadow: 0 18px 36px rgba(0, 0, 0, 0.08); }
 
         .treat-meta {
             display: flex;
@@ -117,6 +132,8 @@
             font-size: 0.95rem;
             flex-wrap: wrap;
         }
+
+        .treat-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.4rem; }
 
         .cta {
             background: var(--accent);
@@ -175,47 +192,72 @@
             <div class="container">
                 <h2>인기 간식</h2>
                 <div class="treat-grid">
-                    <article class="treat-card">
+                    <article class="treat-card" id="pumpkin-crunch">
                         <h3>펌킨 크런치 바이트</h3>
                         <p>호박과 귀리를 가볍게 구워 민감한 위에도 편안한 한입 간식.</p>
                         <div class="treat-meta"><span>80g / 150g</span><span>₩8,000 · ₩13,000</span></div>
+                        <div class="treat-actions">
+                            <a class="btn btn-primary" href="mailto:hello@pawsdelights.com?subject=펌킨%20크런치%20바이트%20주문">구매 문의</a>
+                            <a class="btn btn-secondary" href="#contact">추천 받기</a>
+                        </div>
                     </article>
-                    <article class="treat-card">
+                    <article class="treat-card" id="blueberry-soft">
                         <h3>블루베리 소프트 츄</h3>
                         <p>베리와 아마씨로 만든 부드러운 식감의 츄, 훈련용으로도 좋아요.</p>
                         <div class="treat-meta"><span>90g / 180g</span><span>₩9,000 · ₩15,000</span></div>
+                        <div class="treat-actions">
+                            <a class="btn btn-primary" href="mailto:hello@pawsdelights.com?subject=블루베리%20소프트%20츄%20주문">구매 문의</a>
+                            <a class="btn btn-secondary" href="#contact">추천 받기</a>
+                        </div>
                     </article>
-                    <article class="treat-card">
+                    <article class="treat-card" id="chicken-herb">
                         <h3>치킨 허브 미니</h3>
                         <p>담백한 단백질과 허브를 더한 고소한 미니 스낵.</p>
                         <div class="treat-meta"><span>70g / 140g</span><span>₩8,500 · ₩14,000</span></div>
+                        <div class="treat-actions">
+                            <a class="btn btn-primary" href="mailto:hello@pawsdelights.com?subject=치킨%20허브%20미니%20주문">구매 문의</a>
+                            <a class="btn btn-secondary" href="#contact">추천 받기</a>
+                        </div>
                     </article>
-                    <article class="treat-card">
+                    <article class="treat-card" id="apple-cinnamon">
                         <h3>애플 시나몬 칩스</h3>
                         <p>사과를 천천히 건조해 향긋한 시나몬을 살짝 더한 칩.</p>
                         <div class="treat-meta"><span>60g / 120g</span><span>₩7,500 · ₩12,500</span></div>
+                        <div class="treat-actions">
+                            <a class="btn btn-primary" href="mailto:hello@pawsdelights.com?subject=애플%20시나몬%20칩스%20주문">구매 문의</a>
+                            <a class="btn btn-secondary" href="#contact">추천 받기</a>
+                        </div>
                     </article>
-                    <article class="treat-card">
+                    <article class="treat-card" id="honey-yogurt">
                         <h3>허니 요거트 드롭스</h3>
                         <p>로컬 꿀을 더한 시원한 요거트 버튼, 간편한 간식용.</p>
                         <div class="treat-meta"><span>65g / 130g</span><span>₩8,000 · ₩13,000</span></div>
+                        <div class="treat-actions">
+                            <a class="btn btn-primary" href="mailto:hello@pawsdelights.com?subject=허니%20요거트%20드롭스%20주문">구매 문의</a>
+                            <a class="btn btn-secondary" href="#contact">추천 받기</a>
+                        </div>
                     </article>
-                    <article class="treat-card">
+                    <article class="treat-card" id="carrot-crunch">
                         <h3>캐롯 크런치 스틱</h3>
                         <p>비타민이 풍부한 당근으로 만든 바삭한 트레이닝 스틱.</p>
                         <div class="treat-meta"><span>85g / 160g</span><span>₩8,500 · ₩14,500</span></div>
+                        <div class="treat-actions">
+                            <a class="btn btn-primary" href="mailto:hello@pawsdelights.com?subject=캐롯%20크런치%20스틱%20주문">구매 문의</a>
+                            <a class="btn btn-secondary" href="#contact">추천 받기</a>
+                        </div>
                     </article>
                 </div>
             </div>
         </section>
 
         <!-- CTA -->
-        <section class="section">
+        <section class="section" id="contact">
             <div class="container">
                 <div class="cta">
                     <h2>어떤 간식이 맞을지 고민되나요?</h2>
                     <p>아이의 나이, 체형, 취향을 알려주시면 잘 맞는 간식을 추천해 드립니다.</p>
                     <a class="btn btn-primary" href="index.html#contact">문의 남기기</a>
+                    <p style="margin-top:1rem;color:var(--text);">배송: 오후 2시 이전 주문 시 당일 출고 · 부드러운 제품은 아이스팩 동봉 · 단순 변심 7일 이내 교환/환불 가능</p>
                 </div>
             </div>
         </section>

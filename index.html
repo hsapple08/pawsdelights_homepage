@@ -5,6 +5,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Paws Delights | 건강한 강아지 간식</title>
+    <meta name="description" content="소형견도 안심하고 먹을 수 있는 프리미엄 수제 간식 브랜드 Paws Delights." />
+    <link rel="icon" href="/favicon.ico" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Paws Delights" />
+    <meta property="og:title" content="Paws Delights | 건강한 강아지 간식" />
+    <meta property="og:description" content="안전한 재료와 부드러운 식감으로 만든 프리미엄 수제 간식" />
+    <meta property="og:url" content="https://pawsdelights.com/" />
+    <meta property="og:image" content="https://dummyimage.com/1200x630/3d715b/ffffff&text=Paws+Delights" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Paws Delights | 건강한 강아지 간식" />
+    <meta name="twitter:description" content="소형견 맞춤 프리미엄 수제 간식" />
+    <meta name="theme-color" content="#3d715b" />
     <style>
         /* ---------- Global styles ---------- */
         :root {
@@ -172,6 +184,25 @@
             margin-top: 1rem;
         }
 
+        .trust-row {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .trust-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.55rem 0.9rem;
+            border-radius: 999px;
+            background: rgba(61, 113, 91, 0.12);
+            color: var(--highlight);
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
         .hero-image {
             background: var(--card);
             border: 1px dashed rgba(61, 113, 91, 0.4);
@@ -232,6 +263,12 @@
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
             display: grid;
             gap: 0.4rem;
+            transition: transform 0.16s ease, box-shadow 0.2s ease;
+        }
+
+        .treat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 36px rgba(0, 0, 0, 0.08);
         }
 
         .treat-meta {
@@ -258,6 +295,12 @@
             border-radius: 14px;
             padding: 1.4rem;
             border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: transform 0.16s ease, box-shadow 0.2s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 26px rgba(0, 0, 0, 0.07);
         }
 
         .reviewer {
@@ -300,6 +343,19 @@
             padding: 1.5rem;
             border: 1px solid rgba(0, 0, 0, 0.04);
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .treat-actions {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 0.4rem;
+        }
+
+        .form-status {
+            margin-top: 0.4rem;
+            font-weight: 600;
+            color: var(--highlight);
         }
 
         form {
@@ -439,6 +495,11 @@
                         <a class="btn btn-primary" href="#treats">간식 보러가기</a>
                         <a class="btn btn-secondary" href="#about">브랜드 소개</a>
                     </div>
+                    <div class="trust-row" aria-label="Brand trust highlights">
+                        <div class="trust-badge">✓ 무첨가 · 무향료</div>
+                        <div class="trust-badge">✓ 소형견 맞춤 사이즈</div>
+                        <div class="trust-badge">✓ 수제 소량 베이킹</div>
+                    </div>
                 </div>
                 <div class="hero-image" aria-label="Hero image placeholder">
                     강아지 &amp; 간식 이미지 자리
@@ -482,6 +543,10 @@
                             <span>80g / 150g</span>
                             <span>₩8,000 · ₩13,000</span>
                         </div>
+                        <div class="treat-actions">
+                            <a class="btn btn-primary" href="shop.html#pumpkin-crunch">구매하기</a>
+                            <a class="btn btn-secondary" href="mailto:hello@pawsdelights.com?subject=펌킨%20크런치%20바이트%20문의">문의</a>
+                        </div>
                     </article>
                     <article class="treat-card">
                         <h3>블루베리 소프트 츄</h3>
@@ -489,6 +554,10 @@
                         <div class="treat-meta">
                             <span>90g / 180g</span>
                             <span>₩9,000 · ₩15,000</span>
+                        </div>
+                        <div class="treat-actions">
+                            <a class="btn btn-primary" href="shop.html#blueberry-soft">구매하기</a>
+                            <a class="btn btn-secondary" href="mailto:hello@pawsdelights.com?subject=블루베리%20소프트%20츄%20문의">문의</a>
                         </div>
                     </article>
                     <article class="treat-card">
@@ -498,6 +567,10 @@
                             <span>70g / 140g</span>
                             <span>₩8,500 · ₩14,000</span>
                         </div>
+                        <div class="treat-actions">
+                            <a class="btn btn-primary" href="shop.html#chicken-herb">구매하기</a>
+                            <a class="btn btn-secondary" href="mailto:hello@pawsdelights.com?subject=치킨%20허브%20미니%20문의">문의</a>
+                        </div>
                     </article>
                     <article class="treat-card">
                         <h3>애플 시나몬 칩스</h3>
@@ -505,6 +578,10 @@
                         <div class="treat-meta">
                             <span>60g / 120g</span>
                             <span>₩7,500 · ₩12,500</span>
+                        </div>
+                        <div class="treat-actions">
+                            <a class="btn btn-primary" href="shop.html#apple-cinnamon">구매하기</a>
+                            <a class="btn btn-secondary" href="mailto:hello@pawsdelights.com?subject=애플%20시나몬%20칩스%20문의">문의</a>
                         </div>
                     </article>
                     <article class="treat-card">
@@ -514,6 +591,10 @@
                             <span>65g / 130g</span>
                             <span>₩8,000 · ₩13,000</span>
                         </div>
+                        <div class="treat-actions">
+                            <a class="btn btn-primary" href="shop.html#honey-yogurt">구매하기</a>
+                            <a class="btn btn-secondary" href="mailto:hello@pawsdelights.com?subject=허니%20요거트%20드롭스%20문의">문의</a>
+                        </div>
                     </article>
                     <article class="treat-card">
                         <h3>캐롯 크런치 스틱</h3>
@@ -521,6 +602,10 @@
                         <div class="treat-meta">
                             <span>85g / 160g</span>
                             <span>₩8,500 · ₩14,500</span>
+                        </div>
+                        <div class="treat-actions">
+                            <a class="btn btn-primary" href="shop.html#carrot-crunch">구매하기</a>
+                            <a class="btn btn-secondary" href="mailto:hello@pawsdelights.com?subject=캐롯%20크런치%20스틱%20문의">문의</a>
                         </div>
                     </article>
                 </div>
@@ -587,22 +672,23 @@
                 <h2>우리 강아지, 어떤 간식이 필요할까요?</h2>
                 <p>아이의 나이와 취향을 알려주세요. 가장 잘 맞는 간식을 추천해 드릴게요.</p>
                 <div class="contact-card">
-                    <form>
+                    <form method="POST" action="https://formspree.io/f/mnqekryv">
                         <div>
                             <label for="name">이름</label>
-                            <input id="name" name="name" type="text" placeholder="이름을 입력해주세요" />
+                            <input id="name" name="name" type="text" placeholder="이름을 입력해주세요" required />
                         </div>
                         <div>
                             <label for="email">이메일</label>
-                            <input id="email" name="email" type="email" placeholder="you@example.com" />
+                            <input id="email" name="email" type="email" placeholder="you@example.com" required />
                         </div>
                         <div>
                             <label for="message">메시지</label>
-                            <textarea id="message" name="message" placeholder="강아지 정보나 궁금한 점을 남겨주세요"></textarea>
+                            <textarea id="message" name="message" placeholder="강아지 정보나 궁금한 점을 남겨주세요" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">보내기</button>
                     </form>
-                    <div class="small-note">데모 폼입니다. 나중에 이메일이나 백엔드와 연결해 사용할 수 있어요.</div>
+                    <div class="form-status" aria-live="polite"></div>
+                    <div class="small-note">Formspree로 전송되는 폼입니다. 이메일이 없다면 <a href="mailto:hello@pawsdelights.com">hello@pawsdelights.com</a>으로 문의해주세요.</div>
                 </div>
             </div>
         </section>
@@ -618,5 +704,46 @@
             </div>
         </div>
     </footer>
+    <script>
+        const form = document.querySelector('form');
+        const statusBox = document.querySelector('.form-status');
+        const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
+
+        if (form) {
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                statusBox.textContent = '';
+
+                if (!form.reportValidity()) return;
+
+                submitBtn.disabled = true;
+                submitBtn.textContent = '전송 중...';
+
+                const data = new FormData(form);
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        headers: { 'Accept': 'application/json' },
+                        body: data,
+                    });
+
+                    if (response.ok) {
+                        statusBox.textContent = '메시지가 전송되었습니다. 곧 연락드릴게요!';
+                        statusBox.style.color = '#3d715b';
+                        form.reset();
+                    } else {
+                        statusBox.textContent = '전송에 실패했습니다. 잠시 후 다시 시도하거나 이메일로 연락주세요.';
+                        statusBox.style.color = '#b00020';
+                    }
+                } catch (error) {
+                    statusBox.textContent = '네트워크 오류가 발생했습니다. 이메일로 연락 부탁드려요.';
+                    statusBox.style.color = '#b00020';
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = '보내기';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
